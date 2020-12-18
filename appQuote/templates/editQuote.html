@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditQuote</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheet.css ">
+</head>
+
+<body>
+    <div>
+        <a href="logout" class="btn btn-info" role="button" type="submit">logout</a>
+        <a href="/dashboard" class="btn btn-info" role="button" type="submit">Continue to Dash</a>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li style="color: red;">{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action='/update/{{quote2Edit.id}}' method="post">
+            {% csrf_token %}
+            <fieldset style="width: fit-content;">
+                <legend>Edit Quote</legend>
+                <p>Quoted By <input type="text" value="{{quote2Edit.quoter}}" name="updatedQuoter"></p>
+                <p>Message</p>
+                <textarea name="updatedMessage" cols="30" rows="10">{{quote2Edit.message}}</textarea>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+    </div>
+    {{quote2Edit.id}}
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div style="margin:20px 0px 0px 30px;">
+        <h1 class="typewriter">Welcome, {{logInUser.userName}}!</h1>
+        <a href="logout" class="btn btn-info" role="button" type="submit">logout</a>
+
+        <table class="table table-striped">
+            <tr class=" bg-dark text-muted">
+                <th>Quoted By</th>
+                <th>Quote</th>
+                <th>Favorites</th>
+                <th>Posted By</th>
+            </tr>
+            {% for quotes in allQuotes %}
+            <tr class="bg-info">
+                <td><em>{{quotes.quoter}}:</em></td>
+                <td>{{quotes.message}}</td>
+                <td><a href="/favQuote/{{quotes.id}}" style="color: purple;"> Add To Favorites</a></td>
+                <td>Posted by : <a href="/users/{{quotes.uploader.id}}"
+                        style="color: white;">{{quotes.uploader.userName}}</a>
+                    {% if logInUser == quotes.uploader %}
+                    <a href="/delete/{{quotes.id}}" style="color: crimson;"> |Delete</a>
+                    <a href="/editQuote/{{quotes.id}}" style="color: crimson;"> |Edit</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div>
+            <h1>{{logInUser.userName}} Favorite Quotes!</h1>
+            <table class="table table-striped">
+                <tr class=" bg-dark text-muted">
+                    <th>Quote By</th>
+                    <th>Quote</th>
+                    <th>Uploaded By</th>
+                </tr>
+                {% for quotes in faveQuotes %}
+                <tr>
+                    <td>{{quotes.quoter}}</td>>
+                    <td>{{quotes.message}}</td>
+                    <td>Posted by : <a href="/users/{{quotes.uploader.id}}">{{quotes.uploader.userName}}</a>
+                        {% if logInUser == quotes.uploader %}
+                        <a href="/delete/{{quotes.id}}" style="color: crimson;"> |Delete</a>
+                        <a href="/editQuote/{{quotes.id}}" style="color: crimson;"> |Edit</a>
+                        {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li style="color: red;">{{message}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <form action="addQuote" method="post">
+            <fieldset style="width: fit-content;">
+                <legend>Contribute a Quote</legend>
+                {% csrf_token %}
+                <p>Quoted By <input type="text" name="Q"></p>
+                <p>Message</p>
+                <textarea name="quoteMessage" cols="30" rows="10"></textarea>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>

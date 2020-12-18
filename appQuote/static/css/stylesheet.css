@@ -1,0 +1,169 @@
+ h1{
+  color: teal;
+  font-family: American Typewriter;
+}
+body
+{
+  font-family: American Typewriter, serif;
+}
+.validation{
+  width: 175px; 
+  height: 150px; 
+  margin: 50px 0px 0px 0px;
+}
+#skyLine{
+  background: white url("appQuote/static/img/SeaSky.jpg") no-repeat;
+}
+
+#example1 {
+  box-shadow: 10px 10px 5px #888;
+}
+.quote{
+  width: 18rem;
+  margin-right: 10px;
+    
+}
+.cards {
+  display: flex;
+  justify-content: space-between;
+ }
+.wrapper{
+  background-color: rgb(19, 15, 15);
+    
+}
+.fade-in {
+  animation: fadeIn ease 15s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity:1;
+  }
+}
+.type{
+  position: relative;
+  animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+  from {left: 0%;}
+  to {left: 25%;}
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+}
+
+.typewriter::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+}
+
+@keyframes typewriter {
+  0%, 100% {
+    width: 0;
+  }
+  25%, 80% { /*speed of typewriter */
+    width: 11.5em; /* Depending on length of phrase adjust here*/
+  }
+}
+
+@keyframes caret {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter;
+  display: inline-block;
+  position: relative;
+  animation-duration: 10s;
+  animation-timing-function: steps(25, end); /* speed of typewriter or appearance of phrase*/
+  animation-iteration-count: infinite;
+}
+.typewriter::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  animation: caret infinite;
+  animation-duration: 1s; /* blinking of | */
+  animation-timing-function: steps(1, end); /* fade in and out of | duration*/
+}
+
+.box_shadow{
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888;
+}
+
+.color {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 100px;
+  position: relative;
+  animation: colorChange 10s infinite;
+}
+
+@keyframes colorChange  {
+  0%   {color: orange;}
+  25%   {color:red;}
+  50%   {color: indigo;}
+  75%   {color: whitesmoke;}
+  100% {color: green;}
+}
+
+.color-hint {
+  background: linear-gradient(blue, 20%, black);
+}
+
+.color-hint-rev {
+  background: linear-gradient(black, 20%, blue);
+}
+
+.color_body {
+  background: linear-gradient(black, 75%, blue);
+}
+/*
+p {
+    border-right: solid 3px rgba(0,255,0,.75);
+    white-space: nowrap;
+    overflow: hidden;    
+    font-family: 'Source Code Pro', monospace;  
+    font-size: 28px;
+    color: rgba(255,255,255,.70);
+  }*/
+  /*
+  /* Animation
+  h1 {
+    animation: animated-text 4s steps(29,end) 1s 1 normal both,
+               animated-cursor 600ms steps(29,end) infinite;
+  }
+  */
+  /* text animation */
+  /*
+  @keyframes animated-text{
+    from{width: 10;}
+    to{width: 10px;}
+  }
+  */
+  /* cursor animations */
+  /*
+  @keyframes animated-cursor{
+    from{border-right-color: rgba(0,255,0,.75);}
+    to{border-right-color: transparent;}
+  }*/
+  

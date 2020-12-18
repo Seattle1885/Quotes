@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration and Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body class="color_body">
+    <div id="skyLine">
+        {% load static %}
+        <img src="{% static 'img/SeaSky.jpg' %}" class="fade-in" alt="seattle pic">
+    </div>
+    <div style="text-align: center;">
+        <h1 class="typewriter">Welcome to Famous Quotes</h1>
+    </div>
+    <div class="d-flex justify-content-around">
+        <div class="box_shadow color-hint-rev" style="color: whitesmoke;">
+            <h1>Registration</h1>
+            <form action="register" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="userName">UserName:</label>
+                    <input type="text" class="form-control" placeholder="Enter UserName" name="userName">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" placeholder="Enter Email" name="email">
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="text" class="form-control" placeholder="Enter Password" name="PW">
+                </div>
+                <div class="form-group">
+                    <label>PW Confirm:</label>
+                    <input type="text" class="form-control" placeholder="Enter PW Confirm" name="PWC">
+                </div>
+                <input type="submit" value="Register" class="btn btn-success">
+            </form>
+        </div>
+        
+        <div class="validation">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li style="color: red;">{{message}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>  
+        
+        <div class="box_shadow color-hint" style="color: whitesmoke; border: none;">
+            <h1 class="fontFam">Login</h1>
+            <form action="login" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="userName">UserName:</label>
+                    <input type="text" class="form-control" placeholder="Enter UserName" name="userName">
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="text" class="form-control" placeholder="Enter Password" name="PW">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="login-submit" tabindex="4"
+                                class="form-control btn btn-success" style="background-color: green; color: white;" value="Log In">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <div>
+    <div>
+        <p class="color">{{request.session.counter}} have visited this site</p>
+    </div>
+</div>
+</body>
+</html>
