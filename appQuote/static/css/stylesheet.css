@@ -127,11 +127,11 @@ body
 }
 
 .color-hint {
-  background: linear-gradient(blue, 20%, black);
+  background: linear-gradient(blue, 25%, black);
 }
 
 .color-hint-rev {
-  background: linear-gradient(black, 20%, blue);
+  background: linear-gradient(black, 25%, blue);
 }
 
 .color_body {
