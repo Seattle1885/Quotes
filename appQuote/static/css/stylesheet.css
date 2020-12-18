@@ -130,8 +130,8 @@ body
   background: linear-gradient(blue, 25%, black);
 }
 
-.color-hint-rev {
-  background: linear-gradient(black, 25%, blue);
+.regBackground {
+  background: linear-gradient(blue, 25%, black);
 }
 
 .color_body {
