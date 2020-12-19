@@ -13,6 +13,7 @@ body
 }
 #skyLine{
   background: white url("appQuote/static/img/SeaSky.jpg") no-repeat;
+  width: 100%;
 }
 
 #example1 {
