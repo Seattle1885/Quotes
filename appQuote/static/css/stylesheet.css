@@ -93,6 +93,7 @@ body
   animation-timing-function: steps(25, end); /* speed of typewriter or appearance of phrase*/
   animation-iteration-count: infinite;
 }
+
 .typewriter::after {
   content: "|";
   position: absolute;
@@ -136,6 +137,7 @@ body
 
 .color_body {
   background: linear-gradient(black, 75%, blue);
+  background-repeat:no-repeat;
 }
 /*
 p {
